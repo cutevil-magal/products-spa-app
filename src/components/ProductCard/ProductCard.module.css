@@ -1,17 +1,16 @@
 .productCard {
   border: 1px solid #e0e0e0;
   border-radius: 12px;
-  padding: 16px;
+  padding: 6px;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  height: 100%; /* Для одинаковой высоты */
   display: flex;
   flex-direction: column;
 }
 
 .productCard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -35,7 +34,7 @@
   font-size: 0.9rem;
   line-height: 1.4;
   flex-grow: 1; /* Занимает оставшееся пространство */
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .price {
@@ -49,4 +48,26 @@
   display: flex;
   gap: 8px;
   justify-content: flex-end;
+}
+
+.likeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: transform 0.2s;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.likeButton:hover {
+  transform: scale(1.2);
+}
+
+.likeButton:focus {
+  outline: none;
+}
+
+.likeButton.active {
+  filter: grayscale(0%);
 }
