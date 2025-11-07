@@ -32,21 +32,13 @@ export const ProductsPage = () => {
     }
   }, [dispatch, products.length]);
 
-  const handleAllClick = (e: React.MouseEvent) => {
-    setFilter('all');
-  };
-
-  const handleFavoritesClick = (e: React.MouseEvent) => {
-    setFilter('favorites');
-  };
-
   return (
     <div>
       <h1>Ассортимент</h1>
       <div className={style.filters}>
         {/* Фильтр "Все/Избранное" */}
-        <button onClick={handleAllClick}>Все</button>
-        <button onClick={handleFavoritesClick}>Избранное</button>
+        <button onClick={() => setFilter('all')}>Все</button>
+        <button onClick={() => setFilter('favorites')}>Избранное</button>
       </div>
       
       <div>

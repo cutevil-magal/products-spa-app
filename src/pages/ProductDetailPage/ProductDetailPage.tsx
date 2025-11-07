@@ -2,14 +2,12 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import type { RootState } from "../../store";
 import styles from './ProductDetailPage.module.css';
-import { useState } from 'react';
 
 export const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const products = useSelector((state: RootState) => state.products.items);
   const product = products.find(p => p.id === Number(id));
-  const [selectedImage, setSelectedImage] = useState(0);
 
   if (!product) {
     return (
@@ -34,7 +32,7 @@ export const ProductDetailPage = () => {
         {/* Левая колонка - изображения */}
         <div className={styles.imageSection}>
           <img 
-            src={product.images[selectedImage] || product.thumbnail} 
+            src={product.thumbnail} 
             alt={product.title}
           />
         </div>
