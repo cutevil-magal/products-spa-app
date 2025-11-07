@@ -21,13 +21,16 @@ export const ProductsPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const loadProducts = async () => {
-      const productsFromApi = await fetchProducts();
-      dispatch(setProducts(productsFromApi));
-    };
-    
-    loadProducts();
-  }, [dispatch]);
+    // Загружаем продукты только если их нет в store
+    if (products.length === 0) {
+      const loadProducts = async () => {
+        const productsFromApi = await fetchProducts();
+        dispatch(setProducts(productsFromApi));
+      };
+      
+      loadProducts();
+    }
+  }, [dispatch, products.length]);
 
   const handleAllClick = (e: React.MouseEvent) => {
     setFilter('all');

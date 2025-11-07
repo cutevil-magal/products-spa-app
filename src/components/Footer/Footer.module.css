@@ -1,0 +1,43 @@
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 1.5rem 0;
+  width: 100%; /* Замени на 100% */
+  box-sizing: border-box;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .footer {
+    padding: 1rem 0;
+  }
+}

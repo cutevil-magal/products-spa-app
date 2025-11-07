@@ -22,7 +22,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     : product.description;
  
     // Обрабатываем случай когда images пустой
-  const imageUrl = product.images[0] || product.thumbnail || 'https://via.placeholder.com/300x200';
+  const imageUrl = product.images[0] || product.thumbnail || 'https://img.freepik.com/premium-vector/photo-frame-icon-empty-photo-blank-vector-isolated-transparent-background-eps-10_399089-1290.jpg';
   
   // Функция для обработки лайка
   const handleLikeClick = (e: React.MouseEvent) => {
