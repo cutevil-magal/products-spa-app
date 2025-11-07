@@ -3,14 +3,17 @@ import type {Product} from '../../types/product';
 import styles from './ProductCard.module.css';
 import { toggleFavorite, removeProduct } from '../../store/productsSlice';
 import type { RootState } from '../../store';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-   const dispatch = useDispatch();
-   const favorites = useSelector((state: RootState) => state.products.favorites);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const favorites = useSelector((state: RootState) => state.products.favorites);
   const isFavorite = favorites.includes(product.id);
 
    // Обрезаем длинное описание
@@ -32,9 +35,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     e.stopPropagation(); // чтобы не сработал клик по карточке
     dispatch(removeProduct(product.id));
   }
+
+  // Функция обработки нажатия на карточку
+  const handleCardClick = () => {
+    navigate(`/products/${product.id}`);
+  };
   
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productCard} onClick={handleCardClick}>
       <img src={imageUrl} alt={product.title} className={styles.image}/>
       <h3 className={styles.title}>{product.title}</h3>
       <p className={styles.description}>{shortDescription}</p>

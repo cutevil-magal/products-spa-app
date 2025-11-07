@@ -47,7 +47,7 @@ export const ProductsPage = () => {
       </div>
       
       <div>
-        {products.length === 0 ? (
+        {products.length === 0 || filteredProducts.length === 0 ? (
           <p>Продуктов пока нет</p>
         ) : (
           <div className={style.productsGrid}>

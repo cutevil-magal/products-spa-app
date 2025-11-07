@@ -10,4 +10,21 @@ export interface Product {
   category: string;
   thumbnail: string;
   images: string[];
+  tags?: string[];
+  sku?: string;
+  weight?: number;
+  dimensions?: {
+    width: number;
+    height: number;
+    depth: number;
+  };
+  warrantyInformation?: string;
+  shippingInformation?: string;
+  availabilityStatus?: string;
+  reviews?: {
+    rating: number;
+    comment: string;
+    reviewerName: string;
+  }[];
+  returnPolicy?: string;
 }
