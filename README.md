@@ -1,73 +1,234 @@
-# React + TypeScript + Vite
+# Products SPA - Интернет-магазин продуктов
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**React-приложение для просмотра и управления каталогом продуктов с системой избранного**
 
-Currently, two official plugins are available:
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📖 О проекте
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Products SPA - это современное одностраничное приложение для работы с каталогом продуктов. Пользователи могут просматривать товары, добавлять их в избранное, создавать новые продукты и управлять каталогом.
 
-## Expanding the ESLint configuration
+### 🎯 Ключевые особенности
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **🛍️ Полный каталог продуктов** с загрузкой из внешнего API
+- **❤️ Система избранного** с сохранением состояния
+- **➕ Создание продуктов** через валидируемую форму
+- **🎯 Умная фильтрация** по избранным товарам
+- **📱 Адаптивный интерфейс** с современным дизайном
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🛠 Технологический стек
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Frontend:**
+- React 19 с функциональными компонентами и хуками
+- TypeScript для строгой типизации
+- Redux Toolkit для управления состоянием
+- React Router для навигации
+- CSS Modules для изолированных стилей
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Инструменты разработки:**
+- Vite для быстрой сборки проекта
+- ESLint для проверки кода качества
+- GitHub Pages для деплоя
+
+---
+
+## 🚀 Быстрый старт
+
+### Установка зависимостей
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Запуск в режиме разработки
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Сборка production-версии
+
+```bash
+npm run build
+```
+
+### Деплой на GitHub Pages
+
+```bash
+npm run deploy
+```
+
+---
+
+## 📁 Структура проекта
+
+```
+src/
+├── components/          # Компоненты приложения
+│   ├── Header/         # Шапка приложения
+│   ├── ProductCard/    # Карточка продукта
+│   ├── Layout/         # Основной лейаут
+│   └── Footer/         # Подвал приложения
+├── pages/              # Страницы приложения
+│   ├── ProductsPage/   # Главная страница с каталогом
+│   ├── ProductDetailPage/ # Детальная страница продукта
+│   └── CreateProductPage/ # Страница создания продукта
+├── store/              # Управление состоянием
+│   ├── productsSlice.ts # Слайс для работы с продуктами
+│   └── index.ts        # Настройка хранилища
+├── types/              # TypeScript типы
+│   └── product.ts      # Интерфейсы продуктов
+├── api/                # Работа с API
+│   └── productsApi.ts  # Функции для запросов к API
+└── styles/             # Стили приложения
+```
+
+---
+
+## 🎯 Реализованные функции
+
+### ✅ Основные задачи
+
+**Задача 1: Список продуктов (/products)**
+- [x] Вывод всего списка продуктов из API
+- [x] Иконка лайка с подкрашиванием в избранном
+- [x] Иконка удаления продуктов
+- [x] Фильтр "Все/Избранное"
+- [x] Урезанный контент карточек для одинаковой высоты
+- [x] Клик по карточке → переход на детальную страницу
+
+**Задача 2: Страница продукта (/products/:id)**
+- [x] Детальная информация о продукте
+- [x] Кнопка возврата на главную страницу
+
+**Задача 3: Создание продукта (/create-product)**
+- [x] Форма с обязательными полями
+- [x] Валидация полей
+- [x] Сохранение в Redux store
+
+### 🎨 Дополнительные функции
+- [x] Адаптивный дизайн
+- [x] Современный UI/UX
+- [x] Поддержка TypeScript
+- [x] Оптимизированная архитектура
+
+---
+
+## 🎨 Особенности реализации
+
+### Управление состоянием с Redux Toolkit
+
+```typescript
+// Слайс для работы с продуктами
+const productsSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {
+    toggleFavorite: (state, action: PayloadAction<number>) => {
+      const productId = action.payload;
+      const isFavorite = state.favorites.includes(productId);
+      
+      if (isFavorite) {
+        state.favorites = state.favorites.filter(id => id !== productId);
+      } else {
+        state.favorites.push(productId);
+      }
+    },
+    addProduct: (state, action: PayloadAction<Product>) => {
+      state.items.push(action.payload);
+    },
+    removeProduct: (state, action: PayloadAction<number>) => {
+      const productId = action.payload;
+      state.favorites = state.favorites.filter(id => id !== productId);
+      state.items = state.items.filter(product => product.id !== productId);
+    }
+  }
+});
+```
+
+### Валидация формы создания продукта
+
+```typescript
+const validateForm = (): boolean => {
+  const newErrors: Record<string, string> = {};
+
+  if (!formData.title.trim()) newErrors.title = 'Название обязательно';
+  if (!formData.description.trim()) newErrors.description = 'Описание обязательно';
+  if (formData.price <= 0) newErrors.price = 'Цена должна быть больше 0';
+  if (formData.stock < 0) newErrors.stock = 'Количество не может быть отрицательным';
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+```
+
+### Фильтрация избранных продуктов
+
+```typescript
+const filteredProducts = filter === 'favorites' 
+  ? products.filter(product => favorites.includes(product.id))
+  : products;
+```
+
+---
+
+## 📊 API интеграция
+
+Приложение использует [DummyJSON API](https://dummyjson.com/products) для получения данных о продуктах:
+
+```typescript
+export const fetchProducts = async (): Promise<Product[]> => {
+  const response = await fetch('https://dummyjson.com/products');
+  const data = await response.json();
+  return data.products;
+};
+```
+
+---
+
+## 🚀 Деплой
+
+Приложение размещено на GitHub Pages и доступно по адресу:
+**[https://cutevil-magal.github.io/products-spa-app/](https://cutevil-magal.github.io/products-spa-app/)**
+
+### Процесс деплоя:
+1. Сборка проекта: `npm run build`
+2. Деплой на GitHub Pages: `npm run deploy`
+3. Автоматическая публикация в ветке `gh-pages`
+
+---
+
+## 🔮 Возможности для расширения
+
+- [ ] **Пагинация списка** - разбивка на страницы
+- [ ] **Редактирование продуктов** - форма редактирования
+- [ ] **Расширенная фильтрация** - по категориям, цене, рейтингу
+- [ ] **Поиск в реальном времени** - без кнопки отправки
+- [ ] **Локальное хранилище** - сохранение состояния при перезагрузке
+
+---
+
+## 👩‍💻 Разработчик
+
+**Анна Хвостикова** - Frontend Developer
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/cutevil-magal)
+[![Email](https://img.shields.io/badge/Email-ana.magal@yandex.by-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ana.magal@yandex.by)
+
+---
+
+## 📄 Технические требования
+
+**Стэк:** TypeScript, React, Redux Toolkit, React Router  
+**Сборка:** Vite  
+**Деплой:** GitHub Pages  
+**API:** DummyJSON Products API
+
+---
+
+Проект успешно реализует все основные требования тестового задания и демонстрирует современные подходы к разработке React-приложений с TypeScript и Redux Toolkit.
