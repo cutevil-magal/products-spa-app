@@ -43,7 +43,7 @@ export const ProductsPage = () => {
   return (
     <div>
       <h1>Ассортимент</h1>
-      <div>
+      <div className={style.filters}>
         {/* Фильтр "Все/Избранное" */}
         <button onClick={handleAllClick}>Все</button>
         <button onClick={handleFavoritesClick}>Избранное</button>

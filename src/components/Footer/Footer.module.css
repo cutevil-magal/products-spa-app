@@ -1,5 +1,5 @@
 .footer {
-  background: #2c3e50;
+  background: linear-gradient(135deg, #669dea 0%, #514ba2 100%);
   color: white;
   padding: 1.5rem 0;
   width: 100%; /* Замени на 100% */

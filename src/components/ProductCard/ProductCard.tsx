@@ -56,6 +56,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </button>
         <button
           onClick={handleDeleteClick}
+          className={styles.delButton}
         >
           🗑️
         </button>

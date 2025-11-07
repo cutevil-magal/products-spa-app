@@ -71,19 +71,36 @@
 }
 
 .submitButton {
-  background: #007bff;
-  color: white;
-}
-
-.submitButton:hover {
-  background: #0056b3;
+  background: rgba(39, 21, 241, 0.5);
 }
 
 .buttonGroup button[type="button"] {
-  background: #6c757d;
-  color: white;
+  background: rgba(236, 5, 175, 0.2);
 }
 
-.buttonGroup button[type="button"]:hover {
-  background: #545b62;
+.buttonGroup button{
+  
+  color: rgb(10, 5, 53);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.buttonGroup button:hover {
+  background: rgba(123, 123, 238, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+input, 
+textarea {
+  background: rgba(123, 123, 238, 0.3);
+}
+
+h1 {
+  margin-bottom: 30px;
 }
